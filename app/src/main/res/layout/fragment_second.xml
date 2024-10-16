@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".network.fragments.SecondFragment">
+
+    <ImageView
+        android:id="@+id/character_image"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="centerCrop" />
+
+    <ScrollView
+        android:id="@+id/character_card"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/character_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rick Sanchez"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/character_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alive - Human" />
+
+        <TextView
+            android:id="@+id/character_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender: Male" />
+
+        <TextView
+            android:id="@+id/character_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last known location: Citadel of Ricks" />
+
+        <TextView
+            android:id="@+id/character_first_seen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First seen in: Pilot" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seasons:"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/season_1_episode_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Season 1 Episode 1"
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/season_1_episode_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Season 1 Episode 2"
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/season_2_episode_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Season 2 Episode 4"
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</ScrollView>
+
+</FrameLayout>
