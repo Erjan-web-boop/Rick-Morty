@@ -14,4 +14,6 @@ interface ApiService {
 
     @GET("character/{id}")
     fun fetchCharacterById(@Path("id") id: Int): Call<Character>
+
+
 }

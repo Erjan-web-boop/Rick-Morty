@@ -3,7 +3,8 @@ package com.example.fail.network.adapter
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.Glide
 import com.example.fail.R
 import com.example.fail.network.model.Character
@@ -11,17 +12,17 @@ import com.example.fail.databinding.CharacterItemBinding
 
 
 class AppAdapter(
-    private var characterList: List<Character>,
     private val onItemClick: (Character) -> Unit
-) : RecyclerView.Adapter<AppAdapter.CharacterViewHolder>() {
+) : ListAdapter<Character, AppAdapter.CharacterViewHolder>(CharacterDiffCallback) {
 
-    inner class CharacterViewHolder(val binding: CharacterItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class CharacterViewHolder(val binding: CharacterItemBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root) {
         fun bind(character: Character) {
             binding.tvName.text = character.name
             binding.tvDeadOr.text = character.status
             binding.tvRase.text = character.species
             binding.tvLoc2.text = character.location.toString()
             binding.tvSeein2.text = character.created
+
             Glide.with(binding.ivImage.context)
                 .load(character.image)
                 .placeholder(R.drawable.anime)
@@ -30,6 +31,7 @@ class AppAdapter(
             itemView.setOnClickListener {
                 onItemClick(character)
             }
+
             when (character.status) {
                 "Alive" -> binding.statusIndicator.setBackgroundColor(Color.GREEN)
                 "Dead" -> binding.statusIndicator.setBackgroundColor(Color.BLACK)
@@ -45,13 +47,16 @@ class AppAdapter(
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.bind(characterList[position])
+        val character = getItem(position)
+        holder.bind(character)
+    }
+}
+val CharacterDiffCallback = object: DiffUtil.ItemCallback<Character>() {
+    override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
+        return oldItem.id == newItem.id
     }
 
-    override fun getItemCount(): Int = characterList.size
-
-    fun updateData(newCharacterList: List<Character>) {
-        characterList = newCharacterList
-        notifyDataSetChanged()
+    override fun areContentsTheSame(oldItem: Character, newItem: Character): Boolean {
+        return oldItem == newItem
     }
 }
