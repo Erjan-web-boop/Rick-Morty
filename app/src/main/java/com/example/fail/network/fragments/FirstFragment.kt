@@ -5,14 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.fail.network.model.Character
 import com.example.fail.databinding.FragmentFirstBinding
+import com.example.fail.network.resource.Resource
 import com.example.fail.network.ViewModel.FragmentViewModel
 import com.example.fail.network.adapter.AppAdapter
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class FirstFragment : Fragment() {
@@ -24,8 +24,6 @@ class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
 
-    private var characterList: List<Character> = emptyList()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,21 +33,25 @@ class FirstFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view,savedInstanceState)
+        super.onViewCreated(view, savedInstanceState)
 
         val recyclerView = binding.rvApp
 
-
-        appAdapter = AppAdapter(emptyList()) { character ->
+        appAdapter = AppAdapter { character ->
             val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(character)
             findNavController().navigate(action)
         }
 
         recyclerView.adapter = appAdapter
 
-        viewModel.characters.observe(viewLifecycleOwner, { characters ->
-            appAdapter.updateData(characters)
-        })
-    }
+        viewModel.characters.observe(viewLifecycleOwner) { resource ->
+            binding.progressBar.isVisible = resource is Resource.Loading
+            when (resource) {
+                is Resource.Success -> appAdapter.submitList(resource.data)
+                is Resource.Error -> { /* Обработка ошибки */ }
+                else -> Unit
+            }
+        }
 
+    }
 }
