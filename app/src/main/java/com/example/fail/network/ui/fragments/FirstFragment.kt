@@ -13,14 +13,13 @@ import com.example.fail.network.resource.Resource
 import com.example.fail.network.viewmodel.CharacterViewModel
 import com.example.fail.network.ui.adapter.AppAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
+
 class FirstFragment : Fragment() {
 
     private lateinit var appAdapter: AppAdapter
-    private val viewModel by lazy {
-        ViewModelProvider(this)[CharacterViewModel::class.java]
-    }
+    private val viewModel by viewModel<CharacterViewModel>()
 
     private lateinit var binding: FragmentFirstBinding
 
