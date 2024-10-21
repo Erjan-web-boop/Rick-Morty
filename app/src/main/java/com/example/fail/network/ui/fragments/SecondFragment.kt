@@ -13,7 +13,7 @@ import com.example.fail.network.data.model.Character
 import com.example.fail.databinding.FragmentSecondBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class SecondFragment : Fragment() {
 
     private lateinit var binding: FragmentSecondBinding

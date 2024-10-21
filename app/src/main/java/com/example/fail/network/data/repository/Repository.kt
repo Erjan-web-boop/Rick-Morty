@@ -8,9 +8,8 @@ import com.example.fail.network.data.episodes.EpisodeResponse
 import com.example.fail.network.data.model.Character
 import kotlinx.coroutines.Dispatchers
 import okio.IOException
-import javax.inject.Inject
 
-class Repository @Inject constructor(
+class Repository (
     private val api: ApiService
 ) {
 

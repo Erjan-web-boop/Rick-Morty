@@ -9,11 +9,10 @@ import com.example.fail.network.data.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
-class CharacterViewModel @Inject constructor (
+
+class CharacterViewModel(
     private val repository: Repository
 ) : ViewModel() {
-
     val characters: LiveData<Resource<List<Character>>> = repository.fetchCharacters()
     val episodes: LiveData<Resource<EpisodeResponse>> = repository.getEpisodes()
 }
