@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.example.fail.network.fragments.FirstFragment"
+        android:name="com.example.fail.network.ui.fragments.FirstFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_first" >
         <action
@@ -17,12 +17,20 @@
 
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.example.fail.network.fragments.SecondFragment"
+        android:name="com.example.fail.network.ui.fragments.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second">
             <argument
                 android:name="character"
-                app:argType="com.example.fail.network.model.Character" />
+                app:argType="com.example.fail.network.data.model.Character" />
+        <action
+            android:id="@+id/action_secondFragment_to_episodesFragment"
+            app:destination="@id/episodesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/episodesFragment"
+        android:name="com.example.fail.network.ui.fragments.EpisodesFragment"
+        android:label="fragment_episodes"
+        tools:layout="@layout/fragment_episodes" />
 
 </navigation>

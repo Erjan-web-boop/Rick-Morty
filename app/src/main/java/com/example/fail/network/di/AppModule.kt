@@ -2,7 +2,7 @@ package com.example.fail.network.di
 
 
 import com.example.fail.BuildConfig
-import com.example.fail.network.api.ApiService
+import com.example.fail.network.data.api.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,7 +42,7 @@ object AppModule {
     }
 
     @Provides
-    fun provideApiService(retrofit: Retrofit):ApiService{
+    fun provideApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
 

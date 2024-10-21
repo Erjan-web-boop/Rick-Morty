@@ -1,11 +1,11 @@
-package com.example.fail.network.model
+package com.example.fail.network.data.episodes
 
 
 import com.google.gson.annotations.SerializedName
 
-data class BaseResponse(
+data class EpisodeResponse(
     @SerializedName("info")
     val info: Info,
     @SerializedName("results")
-    val characters: List<Character>
+    val results: List<Episode>
 )

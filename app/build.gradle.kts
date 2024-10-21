@@ -69,7 +69,6 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     kapt ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.google.android.material:material:1.9.0")
-
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     implementation ("androidx.navigation:navigation-fragment-ktx:$navVersion")
@@ -78,5 +77,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1")
 
 }

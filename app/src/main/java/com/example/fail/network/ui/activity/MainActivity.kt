@@ -1,4 +1,4 @@
-package com.example.fail.network.activity
+package com.example.fail.network.ui.activity
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

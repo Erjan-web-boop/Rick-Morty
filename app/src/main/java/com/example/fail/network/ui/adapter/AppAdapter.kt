@@ -1,4 +1,4 @@
-package com.example.fail.network.adapter
+package com.example.fail.network.ui.adapter
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.Glide
 import com.example.fail.R
-import com.example.fail.network.model.Character
+import com.example.fail.network.data.model.Character
 import com.example.fail.databinding.CharacterItemBinding
 
 

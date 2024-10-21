@@ -1,4 +1,4 @@
-package com.example.fail.network.fragments
+package com.example.fail.network.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.fail.databinding.FragmentFirstBinding
 import com.example.fail.network.resource.Resource
-import com.example.fail.network.ViewModel.FragmentViewModel
-import com.example.fail.network.adapter.AppAdapter
+import com.example.fail.network.viewmodel.CharacterViewModel
+import com.example.fail.network.ui.adapter.AppAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,7 +19,7 @@ class FirstFragment : Fragment() {
 
     private lateinit var appAdapter: AppAdapter
     private val viewModel by lazy {
-        ViewModelProvider(this)[FragmentViewModel::class.java]
+        ViewModelProvider(this)[CharacterViewModel::class.java]
     }
 
     private lateinit var binding: FragmentFirstBinding
