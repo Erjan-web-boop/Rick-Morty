@@ -1,13 +1,15 @@
-package com.example.fail.network.fragments
+package com.example.fail.network.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.fail.R
-import com.example.fail.network.model.Character
+import com.example.fail.network.data.model.Character
 import com.example.fail.databinding.FragmentSecondBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,6 +43,9 @@ class SecondFragment : Fragment() {
                 .load(it.image)
                 .placeholder(R.drawable.place_holder)
                 .into(binding.characterImage)
+        }
+        binding.btnEpisode.setOnClickListener {
+            findNavController().navigate(R.id.action_secondFragment_to_episodesFragment)
         }
     }
 

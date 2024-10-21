@@ -1,4 +1,4 @@
-package com.example.fail.network.model
+package com.example.fail.network.data.model
 
 
 import android.os.Parcelable

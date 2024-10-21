@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Fail"
         tools:targetApi="31">
         <activity
-            android:name=".network.activity.MainActivity"
+            android:name=".network.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
