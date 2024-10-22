@@ -11,14 +11,10 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("character")
-    suspend fun fetchCharacter(): Response<BaseResponse>
-
     @GET("character/{id}")
-    suspend fun fetchCharacterById(@Path("id") id: Int): Response<Character>
+    suspend fun fetchCharacter(@Path("id") id: Int):Response<BaseResponse>
 
-    @GET("episode")
-    suspend fun getEpisodes(): Response<EpisodeResponse>
-
+    @GET("episode/{id}")
+    suspend fun getEpisodes(@Path("id") id: Int): Response<EpisodeResponse>
 
 }
